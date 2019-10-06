@@ -63,7 +63,13 @@ public class WebDriverBasicMethods {
 		// driver.findElement(By.partialLinkText("Forgotton"));
 
 		driver.findElement(By.id("loginbutton")).click(); //driver.findElement(By.id("loginbutton")).submit(); both are same only
-		driver.findElement(By.id("loginbutton")).sendKeys(Keys.F5);// To Refresh the page	
+		driver.findElement(By.id("loginbutton")).sendKeys(Keys.F5);// To Refresh the page
+		
+		driver.findElement(By.id("loginbutton")).clear();
+		driver.findElement(By.id("loginbutton")).getTagName();
+		
+		driver.findElement(By.id("loginbutton")).getText();
+		
 
 	}
 
