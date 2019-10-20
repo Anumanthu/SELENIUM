@@ -82,7 +82,8 @@ public class SeleniumGridExample {
 		 * 
 		 */
 
-		// Declare Remote Web Driver as below to run test cases on nodes
+		//Declare RemoteWebDriver as below to run test cases on nodes
+		//Remember the RemoteWebDriver for Selenium Grid
 
 		WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), dc);
 		driver.manage().window().maximize();
@@ -92,6 +93,8 @@ public class SeleniumGridExample {
 		driver.get("http://www.google.com/");
 
 		// Write your test cases
+		
+		
 
 	}
 

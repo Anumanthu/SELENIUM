@@ -48,7 +48,7 @@ public class AutoSuggestiveDropDwons {
 		JavascriptExecutor js = (JavascriptExecutor) (driver);
 
 		String script = "return document.getElementById(\"fromPlaceName\").value;";
-		//We can as below also
+		//We can write as below also
 		//String script1 = "return document.getElementById('fromPlaceName').value;";
 		
 		// String text=(String) js.executeScript(script);

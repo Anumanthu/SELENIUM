@@ -62,8 +62,8 @@ public class Brokenlinks {
 
 			try {
 
-				URL httppage = new URL(url);
-				huc = (HttpURLConnection) httppage.openConnection();
+				URL httppageURL = new URL(url);
+				huc = (HttpURLConnection) httppageURL.openConnection();
 
 				huc.setRequestMethod("HEAD");
 
