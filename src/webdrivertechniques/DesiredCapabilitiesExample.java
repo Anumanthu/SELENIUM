@@ -50,7 +50,7 @@ public class DesiredCapabilitiesExample {
 		// driver.manage().deleteAllCookies();
 
 		driver.manage().deleteCookieNamed("cookiename");
-
+		
 		Thread.sleep(2000);
 
 	}

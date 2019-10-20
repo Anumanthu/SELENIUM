@@ -1,4 +1,4 @@
-package locators;
+package webdrivertechniques;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -23,6 +23,9 @@ public class SoftAssertionsExamples {
 	@Test(priority=2)
 	public void testHard()
 	{	
+	
+
+		
 	System.out.println("Test2 started");	
 	Assert.assertEquals(12,12);
 	Assert.assertEquals(12,13);

@@ -58,6 +58,8 @@ public static void setCellData(int i,int j,String text) throws Exception
 		cell=row.getCell(j);
 		cell.setCellValue(text);
 		
+		//sheet.getRow(i).getCell(j).getStringCellValue();
+		
 		System.out.println(getCellData(i,j));
 
 		

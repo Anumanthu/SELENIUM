@@ -43,6 +43,7 @@ public class Alerts {
 		// WebDriver driver=new FirefoxDriver();
 
 		// Alert alert =driver.switchTo().alert();
+		
 
 		// alert.accept();
 		// alert.dismiss();

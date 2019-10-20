@@ -55,6 +55,8 @@ public class SynchronizationExamples {
 		// *********************************************
 
 		WebDriverWait d = new WebDriverWait(driver, 20);
+		
+		//d.until(ExpectedConditions.
 
 		// Syntax----> d.until(ExpectedConditions.visibilityOfElementLocated(locator))
 
