@@ -51,6 +51,9 @@ public class TakeScreenshotOfWebElement {
 		FileUtils.copyFile(src2, new File("destination path"));
 		
 		
+		//Anumanthu Selenium learning
+		
+		
 		
 
 
