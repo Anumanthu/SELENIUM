@@ -1,107 +1,106 @@
-package locators;
+package src.locators;
 
-import java.util.Iterator;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.DesiredCapabilities;
+
+import java.util.Iterator;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
 //import org.openqa.selenium.interactions.Actions;
 
 public class PrintFaceBookFriends {
 
-	public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws Exception {
 
-		System.setProperty("webdriver.chrome.driver",
-				"C:\\Users\\akindint\\Desktop\\Selenium Learning\\chromedriver.exe");
-		
-		
-		
-		//VVV IMP How handle notification popups using selenium
-		//Create a instance of ChromeOptions class
-		ChromeOptions options = new ChromeOptions();
+        System.setProperty("webdriver.chrome.driver",
+                "C:\\Users\\akindint\\Desktop\\Selenium Learning\\chromedriver.exe");
 
-		//Add chrome switch to disable notification - "**--disable-notifications**"  
-		options.addArguments("--disable-notifications");
 
-		WebDriver driver = new ChromeDriver(options);
+        //VVV IMP How handle notification popups using selenium
+        //Create a instance of ChromeOptions class
+        ChromeOptions options = new ChromeOptions();
 
-		// WebDriver driver=new FirefoxDriver();
+        //Add chrome switch to disable notification - "**--disable-notifications**"
+        options.addArguments("--disable-notifications");
 
-		driver.get("http://www.facebook.com");
+        WebDriver driver = new ChromeDriver(options);
 
-		// String homepage="https://www.facebook.com";
+        // WebDriver driver=new FirefoxDriver();
 
-		driver.manage().window().maximize();
+        driver.get("http://www.facebook.com");
 
-		// driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
-		driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
+        // String homepage="https://www.facebook.com";
 
-		driver.findElement(By.id("email")).sendKeys("anumanthunitt@gmail.com");
-		driver.findElement(By.xpath("//input[@type='password']")).sendKeys("sandhya.143");
-		//driver.findElement(By.xpath("//input[@type='submit']")).click();
-		driver.findElement(By.xpath("//input[@type='submit']")).submit();
+        driver.manage().window().maximize();
 
-		Thread.sleep(10000);
+        // driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
 
-		driver.findElement(By.xpath("//a[@href='https://www.facebook.com/kindinti.anumanthu.9']")).click();
+        driver.findElement(By.id("email")).sendKeys("anumanthunitt@gmail.com");
+        driver.findElement(By.xpath("//input[@type='password']")).sendKeys("sandhya.143");
+        //driver.findElement(By.xpath("//input[@type='submit']")).click();
+        driver.findElement(By.xpath("//input[@type='submit']")).submit();
 
-		driver.findElement(By.xpath("//a[@data-tab-key='friends']")).click();
+        Thread.sleep(10000);
 
-		while (true) {
-			int bs = driver.findElements(By.xpath("//div[@class='fsl fwb fcb']")).size();
+        driver.findElement(By.xpath("//a[@href='https://www.facebook.com/kindinti.anumanthu.9']")).click();
 
-			int y = driver.findElements(By.xpath("//div[@class='fsl fwb fcb']")).get(bs - 1).getLocation().y;
-			
-			WebElement lastFriend=driver.findElements(By.xpath("//div[@class='fsl fwb fcb']")).get(bs - 1);
+        driver.findElement(By.xpath("//a[@data-tab-key='friends']")).click();
 
-			// We have method scroll(horizontal(x-coordinate), vertical(y-coordinate)) i.e.
-			// scroll(0,400)
+        while (true) {
+            int bs = driver.findElements(By.xpath("//div[@class='fsl fwb fcb']")).size();
 
-			// ((JavascriptExecutor)driver).executeScript("window.scrollTo(0,"+y+")");
+            int y = driver.findElements(By.xpath("//div[@class='fsl fwb fcb']")).get(bs - 1).getLocation().y;
 
-			// ((JavascriptExecutor)driver).executeScript("window.scroll(0,"+y+")");
+            WebElement lastFriend = driver.findElements(By.xpath("//div[@class='fsl fwb fcb']")).get(bs - 1);
 
-			// we can scroll bar without using window.
+            // We have method scroll(horizontal(x-coordinate), vertical(y-coordinate)) i.e.
+            // scroll(0,400)
 
-			//((JavascriptExecutor) driver).executeScript("scroll(0," + y + ")");
-			
-			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);",lastFriend);
-			
+            // ((JavascriptExecutor)driver).executeScript("window.scrollTo(0,"+y+")");
 
-			Thread.sleep(5000);
+            // ((JavascriptExecutor)driver).executeScript("window.scroll(0,"+y+")");
 
-			int as = driver.findElements(By.xpath("//div[@class='fsl fwb fcb']")).size();
+            // we can scroll bar without using window.
 
-			if (bs == as) {
-				break;
-			}
+            //((JavascriptExecutor) driver).executeScript("scroll(0," + y + ")");
 
-		}
+            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", lastFriend);
 
-		int count = driver.findElements(By.xpath("//div[@class='fsl fwb fcb']")).size();
 
-		System.out.println("Total number of friends  ---->" + count);
+            Thread.sleep(5000);
 
-		List<WebElement> lst = driver.findElements(By.xpath("//div[@class='fsl fwb fcb']"));
+            int as = driver.findElements(By.xpath("//div[@class='fsl fwb fcb']")).size();
 
-		Iterator<WebElement> it = lst.iterator();
+            if (bs == as) {
+                break;
+            }
 
-		// Actions ac=new Actions(driver);
+        }
 
-		while (it.hasNext()) {
-			System.out.println(it.next().getText());
-			// ((JavascriptExecutor)driver).executeScript("scroll(0,100000)");
+        int count = driver.findElements(By.xpath("//div[@class='fsl fwb fcb']")).size();
 
-		}
+        System.out.println("Total number of friends  ---->" + count);
+
+        List<WebElement> lst = driver.findElements(By.xpath("//div[@class='fsl fwb fcb']"));
+
+        Iterator<WebElement> it = lst.iterator();
+
+        // Actions ac=new Actions(driver);
+
+        while (it.hasNext()) {
+            System.out.println(it.next().getText());
+            // ((JavascriptExecutor)driver).executeScript("scroll(0,100000)");
+
+        }
 
 //JavascriptExecutor js=	(JavascriptExecutor)driver;
 //js.executeScript()
 
-	}
+    }
 
 }

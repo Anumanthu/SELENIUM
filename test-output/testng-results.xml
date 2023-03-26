@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
-  <reporter-output>
-  </reporter-output>
-  <suite name="Default suite" duration-ms="26404" started-at="2019-08-17T16:45:34Z" finished-at="2019-08-17T16:46:00Z">
-    <groups>
-    </groups>
-    <test name="Default test" duration-ms="26404" started-at="2019-08-17T16:45:34Z" finished-at="2019-08-17T16:46:00Z">
-      <class name="assignments.RealTimeExcercises">
-        <test-method status="PASS" signature="realtimeExamples()[pri:0, instance:assignments.RealTimeExcercises@7a1ebcd8]" name="realtimeExamples" duration-ms="26379" started-at="2019-08-17T16:45:34Z" finished-at="2019-08-17T16:46:00Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- realtimeExamples -->
-      </class> <!-- assignments.RealTimeExcercises -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+    <reporter-output>
+    </reporter-output>
+    <suite name="Default suite" duration-ms="26404" started-at="2019-08-17T16:45:34Z"
+           finished-at="2019-08-17T16:46:00Z">
+        <groups>
+        </groups>
+        <test name="Default test" duration-ms="26404" started-at="2019-08-17T16:45:34Z"
+              finished-at="2019-08-17T16:46:00Z">
+            <class name="assignments.RealTimeExcercises">
+                <test-method status="PASS"
+                             signature="realtimeExamples()[pri:0, instance:assignments.RealTimeExcercises@7a1ebcd8]"
+                             name="realtimeExamples" duration-ms="26379" started-at="2019-08-17T16:45:34Z"
+                             finished-at="2019-08-17T16:46:00Z">
+                    <reporter-output>
+                    </reporter-output>
+                </test-method> <!-- realtimeExamples -->
+            </class> <!-- assignments.RealTimeExcercises -->
+        </test> <!-- Default test -->
+    </suite> <!-- Default suite -->
 </testng-results>

@@ -1,4 +1,4 @@
-package webdrivertechniques;
+package src.webdrivertechniques;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -7,78 +7,71 @@ import org.testng.Assert;
 
 public class E2EAllUI_Elements {
 
-	public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException {
 
-		System.setProperty("webdriver.chrome.driver",
-				"C:\\Users\\1018546\\Desktop\\Selenium Learning\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver",
+                "C:\\Users\\1018546\\Desktop\\Selenium Learning\\chromedriver.exe");
 
-		WebDriver driver = new ChromeDriver();
+        WebDriver driver = new ChromeDriver();
 
-		driver.get("http://spicejet.com"); // URL in the browser
+        driver.get("http://spicejet.com"); // URL in the browser
 
-		driver.findElement(By.id("ctl00_mainContent_rbtnl_Trip_0")).click();
+        driver.findElement(By.id("ctl00_mainContent_rbtnl_Trip_0")).click();
 
-		driver.findElement(By.id("ctl00_mainContent_ddl_originStation1_CTXT")).click();
+        driver.findElement(By.id("ctl00_mainContent_ddl_originStation1_CTXT")).click();
 
-		driver.findElement(By.xpath("//a[@value='DEL']")).click();
+        driver.findElement(By.xpath("//a[@value='DEL']")).click();
 
-		Thread.sleep(2000);
+        Thread.sleep(2000);
 
-		driver.findElement(By.xpath("//div[@id='glsctl00_mainContent_ddl_destinationStation1_CTNR'] //a[@value='MAA']"))
-				.click();
+        driver.findElement(By.xpath("//div[@id='glsctl00_mainContent_ddl_destinationStation1_CTNR'] //a[@value='MAA']"))
+                .click();
 
-		driver.findElement(By.cssSelector(".ui-state-default.ui-state-highlight.ui-state-active")).click();
+        driver.findElement(By.cssSelector(".ui-state-default.ui-state-highlight.ui-state-active")).click();
 
-		if (driver.findElement(By.id("Div1")).getAttribute("style").contains("0.5"))
+        if (driver.findElement(By.id("Div1")).getAttribute("style").contains("0.5")) {
 
-		{
+            System.out.println("its disabled");
 
-			System.out.println("its disabled");
+            Assert.assertTrue(true);
 
-			Assert.assertTrue(true);
+        } else {
 
-		}
+            Assert.assertTrue(false);
+            //Assert.fail();
 
-		else
+        }
 
-		{
+        driver.findElement(By.cssSelector("input[id*='SeniorCitizenDiscount']")).click();
 
-			Assert.assertTrue(false);
+        driver.findElement(By.id("divpaxinfo")).click();
 
-		}
+        Thread.sleep(2000L);
 
-		driver.findElement(By.cssSelector("input[id*='SeniorCitizenDiscount']")).click();
+        for (int i = 1; i < 5; i++) {
 
-		driver.findElement(By.id("divpaxinfo")).click();
+            driver.findElement(By.id("hrefIncAdt")).click();
 
-		Thread.sleep(2000L);
+        }
 
-		for (int i = 1; i < 5; i++)
+        //driver.getTitle().toString();
+        //driver.getPageSource().toString();
+        //driver.getWindowHandles();
 
-		{
+        driver.findElement(By.id("btnclosepaxoption")).click();
 
-			driver.findElement(By.id("hrefIncAdt")).click();
+        Assert.assertEquals(driver.findElement(By.id("divpaxinfo")).getText(), "5 Adult");
 
-		}
-		
-		//driver.getTitle().toString();
-		//driver.getPageSource().toString();
-		//driver.getWindowHandles();
+        System.out.println(driver.findElement(By.id("divpaxinfo")).getText());
 
-		driver.findElement(By.id("btnclosepaxoption")).click();
+        // driver.findElement(By.cssSelector("#ctl00_mainContent_btn_FindFlights")).click();
 
-		Assert.assertEquals(driver.findElement(By.id("divpaxinfo")).getText(), "5 Adult");
-
-		System.out.println(driver.findElement(By.id("divpaxinfo")).getText());
-
-		// driver.findElement(By.cssSelector("#ctl00_mainContent_btn_FindFlights")).click();
-
-		driver.findElement(By.cssSelector("input[value='Search']")).click();
+        driver.findElement(By.cssSelector("input[value='Search']")).click();
 
 //			driver.findElement(By.xpath("//input[@value='Search']")).click();
 
 //			driver.findElement(By.name("ctl00$mainContent$btn_FindFlights")).click();
 
-	}
+    }
 
 }

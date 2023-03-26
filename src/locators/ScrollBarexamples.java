@@ -1,4 +1,4 @@
-package locators;
+package src.locators;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -8,42 +8,42 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class ScrollBarexamples {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		System.setProperty("webdriver.chrome.driver",
-				"C:\\Users\\AKINDINT\\Desktop\\Selenium Learning\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver",
+                "C:\\Users\\AKINDINT\\Desktop\\Selenium Learning\\chromedriver.exe");
 
-		WebDriver driver = new ChromeDriver();
+        WebDriver driver = new ChromeDriver();
 
-		// Maximize browser
+        // Maximize browser
 
-		driver.manage().window().maximize();
+        driver.manage().window().maximize();
 
-		// Pass application URL
+        // Pass application URL
 
-		driver.get("http://manos.malihu.gr/repository/custom-scrollbar/demo/examples/complete_examples.html");
+        driver.get("http://manos.malihu.gr/repository/custom-scrollbar/demo/examples/complete_examples.html");
 
-		// Create instance of Javascript executor
+        // Create instance of Javascript executor
 
-		JavascriptExecutor je = (JavascriptExecutor) driver;
+        JavascriptExecutor je = (JavascriptExecutor) driver;
 
-		// Identify the WebElement which will appear after scrolling down
+        // Identify the WebElement which will appear after scrolling down
 
-		WebElement element = driver.findElement(By.xpath("//*[@id='mCSB_3_container']/p[3]"));
+        WebElement element = driver.findElement(By.xpath("//*[@id='mCSB_3_container']/p[3]"));
 
-		// now execute query which actually will scroll until that element is not
-		// appeared on page.
+        // now execute query which actually will scroll until that element is not
+        // appeared on page.
 
-		// arguments[0] means which will find first element on the web page
+        // arguments[0] means which will find first element on the web page
 
-		// je.executeScript("arguments[0].scrollIntoView(true);",element);
+        // je.executeScript("arguments[0].scrollIntoView(true);",element);
 
-		je.executeScript("arguments[0].scrollIntoView(true);", element);
+        je.executeScript("arguments[0].scrollIntoView(true);", element);
 
-		// Extract the text and verify
+        // Extract the text and verify
 
-		System.out.println(element.getText());
+        System.out.println(element.getText());
 
-	}
+    }
 
 }

@@ -1,81 +1,75 @@
 package webdrivertechniques;
 
 import org.openqa.selenium.By;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 //import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class WebelementsValidation {
 
-	public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException {
 
-		System.setProperty("webdriver.chrome.driver",
-				"C:\\Users\\1018546\\Desktop\\Selenium Learning\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver",
+                "C:\\Users\\1018546\\Desktop\\Selenium Learning\\chromedriver.exe");
 
-		WebDriver driver = new ChromeDriver();
+        WebDriver driver = new ChromeDriver();
 
-		// WebDriver driver=new FirefoxDriver();
+        // WebDriver driver=new FirefoxDriver();
 
-		driver.get("http://www.makemytrip.com/");
+        driver.get("http://www.makemytrip.com/");
 
-		driver.manage().window().maximize();
+        driver.manage().window().maximize();
 
-		Thread.sleep(2000);
+        Thread.sleep(2000);
 
-		// WebDriver driver=new FirefoxDriver();
+        // WebDriver driver=new FirefoxDriver();
 
-		// Is displayed is used when particular object is in code base but it is in
-		// visible mode or not
+        // Is displayed is used when particular object is in code base but it is in
+        // visible mode or not
 
-		System.out.println(" Before clikcing on Multi city Radio button");
+        System.out.println(" Before clikcing on Multi city Radio button");
 
-		System.out.println(driver.findElement(By.xpath(".//*[@id='return_date_sec']")).isDisplayed());
+        System.out.println(driver.findElement(By.xpath(".//*[@id='return_date_sec']")).isDisplayed());
 
-		// driver.findElement(By.xpath(".//*[@id='multi_city_button']/span")).click();
+        // driver.findElement(By.xpath(".//*[@id='multi_city_button']/span")).click();
 
-		// driver.findElement(By.xpath(".//*[@id='multi_city_button']/span")).isEnabled();
+        // driver.findElement(By.xpath(".//*[@id='multi_city_button']/span")).isEnabled();
 
-		System.out.println(" After clikcing on Multi city Radio button");
+        System.out.println(" After clikcing on Multi city Radio button");
 
-		driver.findElement(By.xpath(".//*[@id='start_date_sec']/span[3]")).click();
+        driver.findElement(By.xpath(".//*[@id='start_date_sec']/span[3]")).click();
 
-		driver.findElement(By.xpath(".//*[@id='ui-datepicker-div']/div[2]/table/tbody/tr[5]/td[3]/a")).click();
+        driver.findElement(By.xpath(".//*[@id='ui-datepicker-div']/div[2]/table/tbody/tr[5]/td[3]/a")).click();
 
-		int i = 0;
+        int i = 0;
 
-		while (i < 5)
+        while (i < 5) {
 
-		{
+            driver.findElement(By.xpath(".//*[@id='adult_count']/a[2]")).click();
 
-			driver.findElement(By.xpath(".//*[@id='adult_count']/a[2]")).click();
+            i++;
 
-			i++;
+        }
 
-		}
+        // System.out.println(driver.findElement(By.xpath(".//*[@id='return_date_sec']")).isDisplayed());
 
-		// System.out.println(driver.findElement(By.xpath(".//*[@id='return_date_sec']")).isDisplayed());
+        // System.out.println(driver.findElement(By.xpath(".//*[@id='mui_city_button']/span")).isDisplayed());
 
-		// System.out.println(driver.findElement(By.xpath(".//*[@id='mui_city_button']/span")).isDisplayed());
+        Thread.sleep(3000L);
 
-		Thread.sleep(3000L);
+        // System.out.println(driver.findElement(By.xpath(".//*[@id='responsive_bottom']/div[2]/div[1]/div/div/h3")).getText());
 
-		// System.out.println(driver.findElement(By.xpath(".//*[@id='responsive_bottom']/div[2]/div[1]/div/div/h3")).getText());
+        // If you want to validate the object which is present in web page or code base
 
-		// If you want to validate the object which is present in web page or code base
+        int count = driver.findElements(By.xpath(".//*[@id='mui_city_button']/span")).size();
 
-		int count = driver.findElements(By.xpath(".//*[@id='mui_city_button']/span")).size();
+        if (count == 0) {
 
-		if (count == 0)
+            System.out.println("verified");
 
-		{
+        }
 
-			System.out.println("verified");
 
-		}
-
-		
-
-	}
+    }
 
 }

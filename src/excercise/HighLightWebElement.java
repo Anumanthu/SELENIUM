@@ -9,49 +9,45 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 
 public class HighLightWebElement {
-	
-
-	public static void main(String []args){
 
 
-
-		System.setProperty("webdriver.chrome.driver",
-				"C:\\Users\\akindint\\Desktop\\Selenium Learning\\chromedriver.exe");
-
-	WebDriver driver=new ChromeDriver();
+    public static void main(String[] args) {
 
 
-	driver.manage().window().maximize();
+        System.setProperty("webdriver.chrome.driver",
+                "C:\\Users\\akindint\\Desktop\\Selenium Learning\\chromedriver.exe");
 
-	driver.get("http://www.facebook.com");
+        WebDriver driver = new ChromeDriver();
 
 
-	// Inspect element
-	WebElement username= driver.findElement(By.id("email")); 
+        driver.manage().window().maximize();
 
-	// Call reuse method
-	highLightElement(driver,username);
+        driver.get("http://www.facebook.com");
 
-	}
 
-	// Element highlighter code
-	public static void highLightElement(WebDriver driver, WebElement element)
-	{
-	JavascriptExecutor js=(JavascriptExecutor)driver; 
+        // Inspect element
+        WebElement username = driver.findElement(By.id("email"));
 
-	js.executeScript("arguments[0].setAttribute('style', 'background: yellow; border: 2px solid red;');", element);
+        // Call reuse method
+        highLightElement(driver, username);
 
-	try 
-	{
-	Thread.sleep(1000);
-	} 
-	catch (InterruptedException e) {
+    }
 
-	System.out.println(e.getMessage());
-	} 
+    // Element highlighter code
+    public static void highLightElement(WebDriver driver, WebElement element) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
 
-	js.executeScript("arguments[0].setAttribute('style','border: solid 2px white');", element); 
+        js.executeScript("arguments[0].setAttribute('style', 'background: yellow; border: 2px solid red;');", element);
 
-	}
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+
+            System.out.println(e.getMessage());
+        }
+
+        js.executeScript("arguments[0].setAttribute('style','border: solid 2px white');", element);
+
+    }
 
 }

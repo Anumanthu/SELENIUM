@@ -1,8 +1,4 @@
-package assignments;
-
-import java.util.Iterator;
-import java.util.Set;
-import java.util.concurrent.TimeUnit;
+package src.assignments;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,44 +7,47 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+import java.util.concurrent.TimeUnit;
+
 public class FramesAssignment {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		System.setProperty("webdriver.chrome.driver",
-				"C:\\Users\\akindint\\Desktop\\Selenium Learning\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver",
+                "C:\\Users\\akindint\\Desktop\\Selenium Learning\\chromedriver.exe");
 
-		// C:\Users\1018546\Desktop\Selenium Learning
+        // C:\Users\1018546\Desktop\Selenium Learning
 
-		WebDriver driver = new ChromeDriver();
+        WebDriver driver = new ChromeDriver();
 
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-		driver.get("https://the-internet.herokuapp.com/");
+        driver.get("https://the-internet.herokuapp.com/");
 
-		driver.manage().window().maximize();
+        driver.manage().window().maximize();
 
-		driver.findElement(By.linkText("Nested Frames")).click();
+        driver.findElement(By.linkText("Nested Frames")).click();
 
-		WebElement ele = driver.findElement(By.xpath("//frame[@name='frame-top']"));
+        WebElement ele = driver.findElement(By.xpath("//frame[@name='frame-top']"));
 
-		WebDriverWait wd = new WebDriverWait(driver, 20);
+        WebDriverWait wd = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-		wd.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(ele));
-		
+        wd.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(ele));
 
-		//driver.switchTo().frame("frame-top");
 
-		driver.switchTo().frame("frame-middle");
+        //driver.switchTo().frame("frame-top");
 
-		String text = driver.findElement(By.cssSelector("div#content")).getText();
+        driver.switchTo().frame("frame-middle");
 
-		System.out.println("The text in the Middle frame is--->" + text);
+        String text = driver.findElement(By.cssSelector("div#content")).getText();
 
-		driver.switchTo().defaultContent();
+        System.out.println("The text in the Middle frame is--->" + text);
 
-		driver.quit();
+        driver.switchTo().defaultContent();
 
-	}
+        driver.quit();
+
+    }
 
 }

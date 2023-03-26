@@ -1,8 +1,5 @@
 package assignments;
 
-import java.util.concurrent.TimeUnit;
-
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -12,90 +9,90 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import java.util.concurrent.TimeUnit;
 
 
 public class DropdownsEditBoxesErrors {
 
-	@BeforeTest
-	public void bforetest() {
-		System.out.println("Before test");
-	}
+    @BeforeTest
+    public void bforetest() {
+        System.out.println("Before test");
+    }
 
-	@Test
-	public void assignment() throws InterruptedException {
+    @Test
+    public void assignment() throws InterruptedException {
 
-		System.setProperty("webdriver.chrome.driver",
-				"C:\\Users\\1018546\\Desktop\\Selenium Learning\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver",
+                "C:\\Users\\1018546\\Desktop\\Selenium Learning\\chromedriver.exe");
 
-		// C:\Users\1018546\Desktop\Selenium Learning
+        // C:\Users\1018546\Desktop\Selenium Learning
 
-		WebDriver driver = new ChromeDriver();
+        WebDriver driver = new ChromeDriver();
 
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-		driver.get("https://www.cleartrip.com/");
+        driver.get("https://www.cleartrip.com/");
 
-		driver.manage().window().maximize();
-		WebElement adults = driver.findElement(By.xpath("//select[@id='Adults']"));
+        driver.manage().window().maximize();
+        WebElement adults = driver.findElement(By.xpath("//select[@id='Adults']"));
 
-		Select s1 = new Select(adults);
+        Select s1 = new Select(adults);
 
-		s1.selectByValue("2");
+        s1.selectByValue("2");
 
-		WebElement childs = driver.findElement(By.cssSelector("#Childrens"));
+        WebElement childs = driver.findElement(By.cssSelector("#Childrens"));
 
-		s1 = new Select(childs);
+        s1 = new Select(childs);
 
-		s1.selectByIndex(1);
+        s1.selectByIndex(1);
 
-		WebElement infants = driver.findElement(By.id("Infants"));
+        WebElement infants = driver.findElement(By.id("Infants"));
 
-		s1 = new Select(infants);
+        s1 = new Select(infants);
 
-		s1.selectByVisibleText("1");
+        s1.selectByVisibleText("1");
 
-		driver.findElement(By.xpath("//a[@id='MoreOptionsLink']")).click();
+        driver.findElement(By.xpath("//a[@id='MoreOptionsLink']")).click();
 
-		WebElement cls = driver.findElement(By.xpath("//select[@name='class']"));
+        WebElement cls = driver.findElement(By.xpath("//select[@name='class']"));
 
-		s1 = new Select(cls);
+        s1 = new Select(cls);
 
-		s1.selectByVisibleText("Business");
+        s1.selectByVisibleText("Business");
 
-		driver.findElement(By.xpath("//input[@id='AirlineAutocomplete']")).sendKeys("ind");
-		
-	
+        driver.findElement(By.xpath("//input[@id='AirlineAutocomplete']")).sendKeys("ind");
 
-		int count = driver.findElements(By.xpath("//a[contains(@id,'ui-id')]")).size();
-		int loopcount = 1;
 
-		WebElement Airline = driver.findElement(By.xpath("//a[contains(@id,'ui-id')]"));
-		
-		Thread.sleep(5000);
+        int count = driver.findElements(By.xpath("//a[contains(@id,'ui-id')]")).size();
+        int loopcount = 1;
 
-		for (int i = 0; i < count; i++) {
-			if (Airline.getText().equalsIgnoreCase("IndiGo (6E)")) {
-				Airline.click();
-				break;
-			}
+        WebElement Airline = driver.findElement(By.xpath("//a[contains(@id,'ui-id')]"));
 
-			loopcount++;
+        Thread.sleep(5000);
 
-			Airline.sendKeys(Keys.ARROW_DOWN);
+        for (int i = 0; i < count; i++) {
+            if (Airline.getText().equalsIgnoreCase("IndiGo (6E)")) {
+                Airline.click();
+                break;
+            }
 
-			if (loopcount > 15)
-				break;
+            loopcount++;
 
-		}
+            Airline.sendKeys(Keys.ARROW_DOWN);
 
-		driver.findElement(By.cssSelector("#SearchBtn")).sendKeys(Keys.ENTER); // instead of using click
+            if (loopcount > 15)
+                break;
 
-		// div[@id='homeErrorMessage']
+        }
 
-		String str = driver.findElement(By.id("homeErrorMessage")).getText();
+        driver.findElement(By.cssSelector("#SearchBtn")).sendKeys(Keys.ENTER); //instead of using click
 
-		System.out.println("This is the error message " + str);
+        // div[@id='homeErrorMessage']
 
-	}
+        String str = driver.findElement(By.id("homeErrorMessage")).getText();
+
+        System.out.println("This is the error message " + str);
+
+    }
 
 }

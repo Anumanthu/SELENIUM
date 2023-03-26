@@ -1,6 +1,4 @@
-package webdrivertechniques;
-
-import java.util.concurrent.TimeUnit;
+package src.webdrivertechniques;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -8,65 +6,67 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 
+import java.util.concurrent.TimeUnit;
+
 public class FramesExamples {
 
-	public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException {
 
-		System.setProperty("webdriver.chrome.driver",
-				"C:\\Users\\akindint\\Desktop\\Selenium Learning\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver",
+                "C:\\Users\\akindint\\Desktop\\Selenium Learning\\chromedriver.exe");
 
-		WebDriver driver = new ChromeDriver();
+        WebDriver driver = new ChromeDriver();
 
-		// WebDriver driver=new FirefoxDriver();
+        // WebDriver driver=new FirefoxDriver();
 
-		driver.get("https://jqueryui.com/droppable/");
+        driver.get("https://jqueryui.com/droppable/");
 
-		driver.manage().window().maximize();
+        driver.manage().window().maximize();
 
-		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 
-		Thread.sleep(2000);
+        Thread.sleep(2000);
 
-		// 1.Css Selector tagname.classname example----- '.' represents class
+        // 1.Css Selector tagname.classname example----- '.' represents class
 
-		// 1.Css Selector tagname#id example---- '#' represents id
+        // 1.Css Selector tagname#id example---- '#' represents id
 
-		WebElement e = driver.findElement(By.cssSelector("iframe.demo-frame"));
+        WebElement e = driver.findElement(By.cssSelector("iframe.demo-frame"));
 
-		// Finding how many frames are available
-		int count = driver.findElements(By.tagName("iframe")).size();//we can find using tag 'frameset' also
-		
-		//int count1 = driver.findElements(By.tagName("frameset")).size();
+        // Finding how many frames are available
+        int count = driver.findElements(By.tagName("iframe")).size();//we can find using tag 'frameset' also
 
-		System.out.println(count);
+        //int count1 = driver.findElements(By.tagName("frameset")).size();
 
-		// Css Selector tagname[class='value'] regular formula
+        System.out.println(count);
 
-		// driver.findElement(By.cssSelector("iframe[class='demo-frame']"));
+        // Css Selector tagname[class='value'] regular formula
 
-		// driver.switchTo().frame(e); //passing weblement to as a argument instead of
-		// index
+        // driver.findElement(By.cssSelector("iframe[class='demo-frame']"));
 
-		driver.switchTo().frame(0);// only one frame available 0 means 1st frame 1 means 2nd frame like that
-		// driver.findElement(By.cssSelector("div#draggable")).click();
+        // driver.switchTo().frame(e); //passing weblement to as a argument instead of
+        // index
 
-		WebElement source = driver.findElement(By.cssSelector("div#draggable"));
+        driver.switchTo().frame(0);// only one frame available 0 means 1st frame 1 means 2nd frame like that
+        // driver.findElement(By.cssSelector("div#draggable")).click();
 
-		WebElement target = driver.findElement(By.cssSelector("div#droppable"));
+        WebElement source = driver.findElement(By.cssSelector("div#draggable"));
 
-		Actions ac = new Actions(driver);
-		
-	//	***********VVERY IMP: we can do Drag and drop element in 2 ways as shown below****************
+        WebElement target = driver.findElement(By.cssSelector("div#droppable"));
 
-		//ac.dragAndDrop(source, target).build().perform();
-		
-		ac.clickAndHold(source).moveToElement(target).release().build().perform();
+        Actions ac = new Actions(driver);
 
-		driver.switchTo().defaultContent();//it will come to normal window from frame
-		
-		//driver.switchTo().parentFrame(); //This will also do the same as above
-	
-		//VVV IMP Difference between driver.switchTo().defaultContent() and driver.switchTo().parentFrame()
+        //	***********VVERY IMP: we can do Drag and drop element in 2 ways as shown below****************
+
+        //ac.dragAndDrop(source, target).build().perform();
+
+        ac.clickAndHold(source).moveToElement(target).release().build().perform();
+
+        driver.switchTo().defaultContent();//it will come to normal window from frame
+
+        //driver.switchTo().parentFrame(); //This will also do the same as above
+
+        //VVV IMP Difference between driver.switchTo().defaultContent() and driver.switchTo().parentFrame()
 		
 		/*
 		Scenario : When there are multiple frames and some of them are nested.
@@ -83,6 +83,6 @@ public class FramesExamples {
 		
 		*/
 
-	}
+    }
 
 }
